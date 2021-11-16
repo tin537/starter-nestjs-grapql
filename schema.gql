@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Item {
+  _id: String!
+  user: String!
+  name: String!
+  status: Boolean!
+  link: String!
+}
+
+type Auth {
+  access_token: String!
+}
+
+type Query {
+  getHello: String!
+  Item(_id: String!): Item!
+  Items(filters: ListItemInput): [Item!]!
+}
+
+input ListItemInput {
+  user: String
+  name: String
+  status: Boolean
+  link: String
+}
+
+type Mutation {
+  createItem(payload: CreateItemInput!): Item!
+  updateItem(payload: UpdateItemInput!): Item!
+  deleteItem(_id: String!): Item!
+  Login(payload: authenInput!): Auth!
+}
+
+input CreateItemInput {
+  name: String!
+  status: String
+  link: String!
+}
+
+input UpdateItemInput {
+  name: String
+  status: Boolean
+  link: String
+}
+
+input authenInput {
+  username: String!
+  password: String!
+}
